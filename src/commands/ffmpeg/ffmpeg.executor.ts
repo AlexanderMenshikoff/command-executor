@@ -7,7 +7,7 @@ import { PromptService } from "../../core/prompt/prompt.service";
 import { FfmpegBuilder } from "./ffmpeg.builder";
 import { ICommandExecFfmpeg, IFfmpegInput } from "./ffmpeg.types";
 
-export abstract class FfmpegExecutor extends CommandExecutor<IFfmpegInput> {
+export class FfmpegExecutor extends CommandExecutor<IFfmpegInput> {
   private fileService: FileService = new FileService();
   private promptService: PromptService = new PromptService();
 
@@ -49,7 +49,7 @@ export abstract class FfmpegExecutor extends CommandExecutor<IFfmpegInput> {
     return spawn(command, args);
   }
 
-  protected processStream(
+  protected proccessStream(
     stream: ChildProcessWithoutNullStreams,
     logger: IStreamLogger
   ): void {
